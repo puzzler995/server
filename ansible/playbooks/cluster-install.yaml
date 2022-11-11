@@ -1,8 +1,8 @@
 ---
 - name: Install K3S
   hosts:
-    - k3s-servers
-    - k3s-agents
+    - k3sservers
+    - k3sagents
   become: true
   gather_facts: true
   any_errors_fatal: true

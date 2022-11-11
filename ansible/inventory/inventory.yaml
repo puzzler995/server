@@ -3,15 +3,27 @@ all:
   children:
     kube:
       children:
-        k3s-servers:
-          192.168.5.1:
-          192.168.5.2:
-          192.168.5.3:
-        k3s-agents:
-          192.168.6.1:
-          192.168.6.2:
-          192.168.6.3:
-          192.168.6.4:
-          192.168.6.5:
+        k3sservers:
+          hosts:
+            k3s-server-01:
+              ansible_host: 192.168.5.1
+            k3s-server-02:
+              ansible_host: 192.168.5.2
+            k3s-server-03:
+              ansible_host: 192.168.5.3
+        k3sagents:
+          hosts:
+            k3s-agent-01:
+              ansible_host: 192.168.6.1
+            k3s-agent-02:
+              ansible_host: 192.168.6.2
+            k3s-agent-03:
+              ansible_host: 192.168.6.3
+            k3s-agent-04:
+              ansible_host: 192.168.6.4
+            k3s-agent-05:
+              ansible_host: 192.168.6.5
     storage:
-      192.168.7.1:
+      hosts:
+        k3s-storage-01:
+          ansible_host: 192.168.7.1
