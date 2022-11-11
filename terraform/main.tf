@@ -4,13 +4,21 @@ terraform {
       source = "telmate/proxmox"
       version = "2.9.11"
     }
+    sops = {
+      source = "carlpett/sops"
+      version = "~> 0.5"
+    }
   }
+}
+
+data "sops_file" "terra-secrets" {
+  source_file = "vars.enc.json"
 }
 
 provider "proxmox" {
   pm_api_url = "https://192.168.0.3:8006/api2/json"
   pm_api_token_id = "terraform-prov@pve!terraform"
-  pm_api_token_secret = var.proxmox_api_secret
+  pm_api_token_secret = data.sops_file.terra-secrets.data["proxmox_api_secret"]
   pm_tls_insecure = true
 }
 
@@ -51,7 +59,7 @@ resource "proxmox_vm_qemu" "kube-server" {
 
   ipconfig0 = "ip=192.168.5.${count.index + 1}/16,gw=192.168.0.1"
 
-  sshkeys = var.ssh_key
+  sshkeys = data.sops_file.terra-secrets.data["ssh_key"]
 }
 
 resource "proxmox_vm_qemu" "kube-agent" {
@@ -90,7 +98,7 @@ resource "proxmox_vm_qemu" "kube-agent" {
 
   ipconfig0 = "ip=192.168.6.${count.index + 1}/16,gw=192.168.0.1"
 
-  sshkeys = var.ssh_key
+  sshkeys = data.sops_file.terra-secrets.data["ssh_key"]
 }
 
 resource "proxmox_vm_qemu" "kube-storage" {
@@ -129,5 +137,5 @@ resource "proxmox_vm_qemu" "kube-storage" {
 
   ipconfig0 = "ip=192.168.7.${count.index + 1}/16,gw=192.168.0.1"
 
-  sshkeys = var.ssh_key
+  sshkeys = data.sops_file.terra-secrets.data["ssh_key"]
 }

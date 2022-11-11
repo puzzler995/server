@@ -3,3 +3,5 @@ terraform/.terraform.tfstate.lock.info
 terraform/terraform.tfstate
 terraform/.terraform/*
 terraform/terraform.tfstate.backup
+terraform/vars.json
+terraform/.decrypted~vars.enc.json
