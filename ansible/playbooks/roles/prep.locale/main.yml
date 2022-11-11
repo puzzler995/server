@@ -1,0 +1,7 @@
+---
+# Set Locale Options
+-
+  block:
+    - name: Locale | Set timezone
+      ansible.builtin.timezone:
+        name: "America/New_York"

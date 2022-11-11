@@ -1,0 +1,11 @@
+{
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/ansible/schemas/main/f/ansible.json#/$defs/playbook": [
+      "file:///home/kat/server/ansible/cluster-prepare.yaml"
+    ],
+    "https://raw.githubusercontent.com/ansible/schemas/main/f/ansible.json#/$defs/tasks": [
+      "file:///home/kat/server/ansible/roles/prep.locale/main.yml",
+      "file:///home/kat/server/ansible/roles/prep.packages.kubekeys/main.yml"
+    ]
+  }
+}
