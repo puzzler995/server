@@ -1,7 +1,8 @@
-terraform/.terraform.lock.hcl
-terraform/.terraform.tfstate.lock.info
-terraform/terraform.tfstate
-terraform/.terraform/*
-terraform/terraform.tfstate.backup
 terraform/vars.json
-terraform/.decrypted~vars.enc.json
+kubeconfig
+.decrypted~*.yaml
+.decrypted~*.json
+.terraform
+.terraform*
+.terraform.tfstate*
+terraform.tfstate*
