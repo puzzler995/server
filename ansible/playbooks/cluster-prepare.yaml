@@ -8,5 +8,7 @@
     - name: Pausing for 5 seconds...
       ansible.builtin.pause:
         seconds: 5
-  roles:
-    - {role: prep.locale}
+  tasks:
+    - name: Locale | Set timezone
+      community.general.system.timezone:
+        name: "America/New_York"
