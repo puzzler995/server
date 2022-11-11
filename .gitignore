@@ -1,6 +1,5 @@
 terraform/.terraform.lock.hcl
 terraform/.terraform.tfstate.lock.info
 terraform/terraform.tfstate
-terraform/.terraform/providers/registry.terraform.io/telmate/proxmox/2.9.11/linux_amd64/LICENSE
-terraform/.terraform/providers/registry.terraform.io/telmate/proxmox/2.9.11/linux_amd64/README.md
-terraform/.terraform/providers/registry.terraform.io/telmate/proxmox/2.9.11/linux_amd64/terraform-provider-proxmox_v2.9.11
+terraform/.terraform/*
+terraform/terraform.tfstate.backup
