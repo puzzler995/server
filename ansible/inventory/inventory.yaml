@@ -7,23 +7,32 @@ all:
           hosts:
             k3s-server-01:
               ansible_host: 192.168.5.1
+              ansible_user: ubuntu
             k3s-server-02:
               ansible_host: 192.168.5.2
+              ansible_user: ubuntu
             k3s-server-03:
               ansible_host: 192.168.5.3
+              ansible_user: ubuntu
         k3sagents:
           hosts:
             k3s-agent-01:
               ansible_host: 192.168.6.1
+              ansible_user: ubuntu
             k3s-agent-02:
               ansible_host: 192.168.6.2
+              ansible_user: ubuntu
             k3s-agent-03:
               ansible_host: 192.168.6.3
+              ansible_user: ubuntu
             k3s-agent-04:
               ansible_host: 192.168.6.4
+              ansible_user: ubuntu
             k3s-agent-05:
               ansible_host: 192.168.6.5
+              ansible_user: ubuntu
     storage:
       hosts:
         k3s-storage-01:
           ansible_host: 192.168.7.1
+          ansible_user: ubuntu
