@@ -37,14 +37,14 @@
       when:
         - k3s_control_node is defined
         - k3s_control_node
-    - name: Update kubeconfig with the correct IPv4 address
-      delegate_to: localhost
-      become: false
-      run_once: true # noqa run-once
-      ansible.builtin.replace:
-        path: "{{ base }}/kubeconfig"
-        regexp: "https://127.0.0.1:6443"
-        replace: "https://{{ k3s_registration_addresss }}:6443"
+    # - name: Update kubeconfig with the correct IPv4 address
+    #   delegate_to: localhost
+    #   become: false
+    #   run_once: true # noqa run-once
+    #   ansible.builtin.replace:
+    #     path: "{{ base }}/kubeconfig"
+    #     regexp: "https://127.0.0.1:6443"
+    #     replace: "https://{{ k3s_registration_address }}:6443"
     - name: Wait for k3s to finish installing the deployed manifests
       ansible.builtin.wait_for:
         timeout: 15
